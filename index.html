@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GraphicsLab — CG Algorithm Visualizer</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-bracket">[</span>
+        GraphicsLab
+        <span class="logo-bracket">]</span>
+      </div>
+      <p class="header-sub">Computer Graphics Algorithm Visualizer</p>
+      <div class="header-status">
+        <span class="status-dot"></span>
+        <span id="statusText">Ready</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="canvas-panel">
+      <div class="canvas-toolbar">
+        <span class="toolbar-label">OUTPUT CANVAS</span>
+        <div class="toolbar-actions">
+          <button class="tool-btn" id="clearBtn" title="Clear canvas">⌫ CLEAR</button>
+          <button class="tool-btn" id="gridToggle" title="Toggle grid">⊞ GRID</button>
+          <button class="tool-btn" id="exportBtn" title="Export canvas">↓ EXPORT</button>
+        </div>
+      </div>
+
+      <div class="canvas-wrapper">
+        <canvas id="graphCanvas"></canvas>
+        <div class="point-tooltip" id="pointTooltip">
+          <span id="tooltipText">—</span>
+        </div>
+      </div>
+
+      <div class="canvas-info-bar">
+        <span id="canvasInfo">Awaiting input...</span>
+        <span id="coordDisplay">x: — &nbsp; y: —</span>
+      </div>
+    </section>
+
+    <section class="control-panel">
+      <div class="panel-title">
+        <span class="panel-num">01</span>
+        SELECT ALGORITHM
+      </div>
+
+      <div class="algo-grid">
+        <button class="algo-btn active" data-algo="dda">DDA Line</button>
+        <button class="algo-btn" data-algo="bresenham_line">Bresenham Line</button>
+        <button class="algo-btn" data-algo="midpoint_circle">Midpoint Circle</button>
+        <button class="algo-btn" data-algo="bresenham_circle">Bresenham Circle</button>
+      </div>
+
+      <div class="panel-title">
+        <span class="panel-num">02</span>
+        PARAMETERS
+      </div>
+
+      <div class="input-group active" id="inputs-line">
+        <div class="input-row">
+          <div class="input-field">
+            <label>x₁</label>
+            <input type="number" id="line_x1" placeholder="0" value="0"/>
+          </div>
+          <div class="input-field">
+            <label>y₁</label>
+            <input type="number" id="line_y1" placeholder="0" value="0"/>
+          </div>
+        </div>
+        <div class="input-row">
+          <div class="input-field">
+            <label>x₂</label>
+            <input type="number" id="line_x2" placeholder="10" value="10"/>
+          </div>
+          <div class="input-field">
+            <label>y₂</label>
+            <input type="number" id="line_y2" placeholder="8" value="8"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-group" id="inputs-circle">
+        <div class="input-row">
+          <div class="input-field">
+            <label>cx</label>
+            <input type="number" id="circ_cx" placeholder="0" value="0"/>
+          </div>
+          <div class="input-field">
+            <label>cy</label>
+            <input type="number" id="circ_cy" placeholder="0" value="0"/>
+          </div>
+        </div>
+        <div class="input-row">
+          <div class="input-field" style="flex:1">
+            <label>Radius (r)</label>
+            <input type="number" id="circ_r" placeholder="8" value="8" min="1"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-title">
+        <span class="panel-num">03</span>
+        OPTIONS
+      </div>
+
+      <div class="options-row">
+        <label class="toggle-wrap">
+          <input type="checkbox" id="showLabels" checked/>
+          <span class="toggle-slider"></span>
+          <span class="toggle-label">Show point labels</span>
+        </label>
+        <label class="toggle-wrap">
+          <input type="checkbox" id="animateDraw" checked/>
+          <span class="toggle-slider"></span>
+          <span class="toggle-label">Animate drawing</span>
+        </label>
+      </div>
+
+      <button class="run-btn" id="runBtn">
+        <span class="run-icon">▶</span>
+        RUN ALGORITHM
+      </button>
+
+      <div class="panel-title">
+        <span class="panel-num">04</span>
+        POINT LOG
+      </div>
+
+      <div class="point-log" id="pointLog">
+        <p class="log-empty">No output yet. Run an algorithm to see plotted points.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with 💖 by <strong>Noureldin</strong></p>
+    <p class="footer-sub">GraphicsLab v1.0 &nbsp;·&nbsp; CG Algorithm Visualizer</p>
+  </footer>
+
+  <script type="module" src="/lib/graphics.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
