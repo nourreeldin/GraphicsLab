@@ -1,4 +1,5 @@
 import { dda } from './lib/dda.js'
+import { bresenham } from './lib/bresenham.js';
 
 const canvas   = document.getElementById('graphCanvas');
 const ctx      = canvas.getContext('2d');
@@ -161,7 +162,7 @@ document.getElementById('runBtn').addEventListener('click', () => {
 
       const raw = currentAlgo === 'dda'
         ? dda(x1, y1, x2, y2)
-        : GraphicsLib.bresenhamLine(x1, y1, x2, y2);
+        : bresenham(x1, y1, x2, y2);
 
       points = raw.map(([x, y]) => ({ x, y, ...toPixel(x, y) }));
 
