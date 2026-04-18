@@ -31,7 +31,8 @@
         <div class="toolbar-actions">
           <button class="tool-btn" id="clearBtn" title="Clear canvas">⌫ CLEAR</button>
           <button class="tool-btn" id="gridToggle" title="Toggle grid">⊞ GRID</button>
-          <button class="tool-btn" id="exportBtn" title="Export canvas">↓ EXPORT</button>
+          <button class="tool-btn" id="resetViewBtn" title="Reset view to default position and zoom">⌖ RESET VIEW</button>
+          <button class="tool-btn" id="exportBtn" title="Export current view">↓ EXPORT</button>
         </div>
       </div>
 
@@ -44,6 +45,7 @@
 
       <div class="canvas-info-bar">
         <span id="canvasInfo">Awaiting input...</span>
+        <span class="canvas-hints">Scroll to zoom &nbsp;·&nbsp; Drag to pan</span>
         <span id="coordDisplay">x: — &nbsp; y: —</span>
       </div>
     </section>
@@ -58,7 +60,7 @@
         <button class="algo-btn active" data-algo="dda">DDA Line</button>
         <button class="algo-btn" data-algo="bresenham_line">Bresenham Line</button>
         <button class="algo-btn" data-algo="midpoint_circle">Midpoint Circle</button>
-        <button class="algo-btn" data-algo="bresenham_circle">Bresenham Circle</button>
+        <button class="algo-btn" data-algo="midpoint_ellipse">Midpoint Ellipse</button>
       </div>
 
       <div class="panel-title">
@@ -104,6 +106,29 @@
           <div class="input-field" style="flex:1">
             <label>Radius (r)</label>
             <input type="number" id="circ_r" placeholder="8" value="8" min="1"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-group" id="inputs-ellipse">
+        <div class="input-row">
+          <div class="input-field">
+            <label>cx</label>
+            <input type="number" id="ellipse_cx" placeholder="0" value="0"/>
+          </div>
+          <div class="input-field">
+            <label>cy</label>
+            <input type="number" id="ellipse_cy" placeholder="0" value="0"/>
+          </div>
+        </div>
+        <div class="input-row">
+          <div class="input-field">
+            <label>Radius (rx)</label>
+            <input type="number" id="ellipse_rx" placeholder="10" value="10"/>
+          </div>
+          <div class="input-field">
+            <label>Radius (ry)</label>
+            <input type="number" id="ellipse_ry" placeholder="8" value="8"/>
           </div>
         </div>
       </div>

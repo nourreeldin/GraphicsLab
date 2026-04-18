@@ -118,7 +118,6 @@ header {
 }
 
 @keyframes pulse {
-
     0%,
     100% {
         opacity: 1;
@@ -240,6 +239,12 @@ main {
     color: var(--text-dim);
     letter-spacing: 0.08em;
     user-select: none;
+}
+
+.canvas-hints {
+    color: var(--text-muted);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
 }
 
 .control-panel {
